@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header';
+import { GlobalStyle } from './styles';
+import Products from './Components/Products';
+import ShoppingCartSideBar from './Components/ShoppingCartSideBar';
+import { useState } from 'react';
+import { Footer } from './Components/Footer/styles';
 
-function App() {
+const App = () => {
+
+  const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
+
+
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <GlobalStyle/>
+    <Header handleSideBar={()=>setSideBarIsOpen(prevState => !prevState)}/>
+    {sideBarIsOpen?<ShoppingCartSideBar handleSideBar={()=>setSideBarIsOpen(prevState => !prevState)}/>:undefined}
+    <Products></Products>
+    <Footer>MKS sistemas © Todos os direitos reservados</Footer>
+    
+    </>
   );
-}
+};
 
 export default App;
