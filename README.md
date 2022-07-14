@@ -40,5 +40,4 @@ Todas as ferramentas listadas anteriormente são mandatórias, além delas sinta
 
 Faça o deploy!
 ---------------
-
-Ao finalizar, faça o deploy no lugar que te for mais confortável (exemplo: Vercel, Netlify, Amazon EC2, etc)
+https://mks-frontend-challeng-kesney-mendes-viana.surge.sh/
