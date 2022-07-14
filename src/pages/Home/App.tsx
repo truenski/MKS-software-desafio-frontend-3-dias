@@ -1,10 +1,9 @@
-import './App.css';
-import Header from './Components/Header';
-import { GlobalStyle } from './styles';
-import Products from './Components/Products';
-import ShoppingCartSideBar from './Components/ShoppingCartSideBar';
+import Header from '../../components/Header';
+import { GlobalStyle } from '../../styles';
+import Products from '../../components/Products';
+import ShoppingCartSideBar from '../../components/ShoppingCartSideBar';
 import { useState } from 'react';
-import { Footer } from './Components/Footer/styles';
+import { Footer } from '../../components/Footer/styles';
 
 const App = () => {
 
