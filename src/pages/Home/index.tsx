@@ -1,5 +1,4 @@
 import Header from '../../components/Header';
-import { GlobalStyle } from '../../styles';
 import Products from '../../components/Products';
 import ShoppingCartSideBar from '../../components/ShoppingCartSideBar';
 import { useState } from 'react';
@@ -14,10 +13,9 @@ const App = () => {
   
   return (
     <>
-    <GlobalStyle/>
     <Header handleSideBar={()=>setSideBarIsOpen(prevState => !prevState)}/>
     {sideBarIsOpen?<ShoppingCartSideBar handleSideBar={()=>setSideBarIsOpen(prevState => !prevState)}/>:undefined}
-    <Products></Products>
+    <Products/>
     <Footer>MKS sistemas © Todos os direitos reservados</Footer>
     
     </>
