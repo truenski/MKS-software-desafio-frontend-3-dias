@@ -4,41 +4,35 @@ import {
     ADD,
     QUANTITY_INCREASE,
     QUANTITY_DECREASE,
-  } from "./actionTypes";
-  import {
+} from './actionTypes'
+import {
     FetchAdd,
     FetchQuantityDecrease,
     FetchQuantityIncrease,
     FetchRemove,
     ShoppingCartProduct,
-  } from "./types";
-  
- 
-  
-  export const fetchAdd = (
-    payload: ShoppingCartProduct
-  ): FetchAdd => ({
+} from './types'
+
+export const fetchAdd = (payload: ShoppingCartProduct): FetchAdd => ({
     type: ADD,
     payload,
-  });
-  
-  export const fetchRemove = (
-    payload: number
-  ): FetchRemove => ({
+})
+
+export const fetchRemove = (payload: number): FetchRemove => ({
     type: REMOVE,
     payload,
-  });
+})
 
-  export const fetchQuantityIncrease = (
+export const fetchQuantityIncrease = (
     payload: number
-  ): FetchQuantityIncrease => ({
+): FetchQuantityIncrease => ({
     type: QUANTITY_INCREASE,
     payload,
-  });
+})
 
-  export const fetchQuantityDecrease = (
+export const fetchQuantityDecrease = (
     payload: number
-  ): FetchQuantityDecrease => ({
+): FetchQuantityDecrease => ({
     type: QUANTITY_DECREASE,
     payload,
-  });
+})

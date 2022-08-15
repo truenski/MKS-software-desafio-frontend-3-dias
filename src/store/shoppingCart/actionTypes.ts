@@ -1,4 +1,4 @@
-export const REMOVE = "REMOVE";
-export const ADD = "ADD";
-export const QUANTITY_INCREASE = "QUANTITY_INCREASE"
-export const QUANTITY_DECREASE = "QUANTITY_DECREASE"
+export const REMOVE = 'REMOVE'
+export const ADD = 'ADD'
+export const QUANTITY_INCREASE = 'QUANTITY_INCREASE'
+export const QUANTITY_DECREASE = 'QUANTITY_DECREASE'
