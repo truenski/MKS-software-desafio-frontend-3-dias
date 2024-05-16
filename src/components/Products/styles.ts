@@ -5,10 +5,15 @@ export const ProductsContainer = styled.div`
     padding: 1em;
     margin-top: 10vh;
     gap: 40px;
-    max-width: 900px; /* Ajuste o valor de acordo com a sua necessidade */
+    width: 60vw;
+    height: '100%';
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 800px) {
+        width: 90vw;
+    }
 `
 export const ProductPhoto = styled.img`
     object-fit: contain;

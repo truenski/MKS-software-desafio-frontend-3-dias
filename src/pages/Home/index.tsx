@@ -11,6 +11,8 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 const App = () => {
     const [sidebarIsOpen, toggleSidebar] = useCycle(false, true)
+    const { handleNavigateNext, handleNavigatePrev, page, totalPages } =
+        usePaginationStore()
 
     return (
         <>
@@ -38,24 +40,28 @@ const App = () => {
                         flexDirection: 'row',
                     }}
                 >
-                    <motion.button
-                        whileTap={{ scale: 0.8 }}
-                        style={{
-                            width: 50,
-                            height: 50,
-                            background: 'transparent',
-                            border: 'none',
-                            cursor: 'pointer',
-                        }}
-                    >
-                        <MdKeyboardArrowLeft
-                            style={{ width: 50, height: 50 }}
-                            fill="black"
-                        />
-                    </motion.button>
+                    {
+                        <motion.button
+                            whileTap={{ scale: 0.8 }}
+                            style={{
+                                width: 50,
+                                height: 50,
+                                background: 'transparent',
+                                border: 'none',
+                                cursor: 'pointer',
+                            }}
+                            onClick={handleNavigatePrev}
+                        >
+                            <MdKeyboardArrowLeft
+                                style={{ width: 50, height: 50 }}
+                                fill={page <= 1 ? '#EEEEEE' : 'black'}
+                            />
+                        </motion.button>
+                    }
                     <Products />
                     <motion.button
                         whileTap={{ scale: 0.8 }}
+                        onClick={handleNavigateNext}
                         style={{
                             width: 50,
                             height: 50,
@@ -66,7 +72,7 @@ const App = () => {
                     >
                         <MdKeyboardArrowRight
                             style={{ width: 50, height: 50 }}
-                            fill="black"
+                            fill={page >= totalPages ? '#EEEEEE' : 'black'}
                         />
                     </motion.button>
                 </div>

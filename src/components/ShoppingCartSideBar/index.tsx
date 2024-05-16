@@ -27,6 +27,24 @@ type ShoppingCartSideBarProps = {
     isOpen: boolean
 }
 
+const variationNav = {
+    open: {
+        display: 'block',
+        transition: {
+            type: 'spring',
+        },
+    },
+    closed: {
+        display: 'none',
+
+        transition: {
+            delay: 0.2,
+
+            type: 'spring',
+        },
+    },
+}
+
 const sidebar = {
     open: (height = 1000) => ({
         clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -145,7 +163,7 @@ export default function ShoppingCartSideBar({
             custom={height}
             animate={isOpen ? 'open' : 'closed'}
             initial="closed"
-            variants={sidebar}
+            variants={variationNav}
         >
             <motion.div
                 style={{
@@ -156,9 +174,10 @@ export default function ShoppingCartSideBar({
                     width: '400px',
                     background: '#0D52B9',
                     height: '100%',
-                    zIndex: 2,
+                    zIndex: 1,
                     boxShadow: '-5px 0px 6px rgba(0,0,0,0.13)',
                 }}
+                variants={sidebar}
             />
             <SidebarContainer>
                 <div
@@ -166,7 +185,7 @@ export default function ShoppingCartSideBar({
                         display: 'flex',
                         justifyContent: 'space-between',
                         width: '100%',
-                        zIndex: isOpen ? 2 : 1,
+                        zIndex: isOpen ? 2 : 0,
                     }}
                 >
                     <SidebarText>Carrinho de compras</SidebarText>
