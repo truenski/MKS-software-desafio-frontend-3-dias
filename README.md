@@ -40,4 +40,4 @@ Todas as ferramentas listadas anteriormente são mandatórias, além delas sinta
 
 Faça o deploy!
 ---------------
-https://mks-frontend-challeng-kesney-mendes-viana.surge.sh/
+ https://fixed-shape.surge.sh/
