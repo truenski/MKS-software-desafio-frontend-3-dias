@@ -4,12 +4,13 @@ export const HeaderContainer = styled.div`
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 101px;
+    height: 80px;
     justify-content: space-between;
     background: #0f52ba;
     display: flex;
     align-items: center;
     overflow: hidden;
+    z-index: 3;
 `
 
 export const NormalTitle = styled.div`

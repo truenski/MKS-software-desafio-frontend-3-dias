@@ -1,12 +1,9 @@
 import { BiggerTitle, CartButton, HeaderContainer, NormalTitle } from './styles'
 import { BsFillCartFill } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
-import { getShoppingCartSelector } from '../../store/shoppingCart/selectors'
+import useShoppingCartStore from '../../store/shoppingCart/useShoppingCart'
 
 function Header({ handleSideBar }) {
-    const shoppingCart = useSelector(getShoppingCartSelector)
-
-    //useState + useEffect!!
+    const { items: shoppingCart } = useShoppingCartStore()
     let countShoppingCartItems = 0
 
     shoppingCart.forEach((item) => {

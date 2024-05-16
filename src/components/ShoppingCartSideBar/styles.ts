@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const SidebarText = styled.p`
     font-family: 'Montserrat';
@@ -13,24 +14,24 @@ export const SidebarText = styled.p`
 `
 
 export const ExitSidebarButton = styled.button`
-font-family: 'Montserrat';
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
     line-height: 15px;
-    background: #000000;
-    color: #FFFFFF;
+    background-color: #fff;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    padding: 0;
     border-radius: 100%;
     border: none;
     display: flex;
-    padding: 12px;
     position: static;
-    margin: 40px;
+    margin: 30px;
     align-content: center;
     justify-content: center;
-    align-items: flex-start;
-}
-
+    align-items: center;
 `
 
 export const RemoveItem = styled.button`
@@ -38,12 +39,12 @@ export const RemoveItem = styled.button`
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    line-height: 15px;
-    background: #000000;
-    color: #ffffff;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    padding: 0;
     border-radius: 100%;
     border: none;
-    padding: 5px;
     cursor: pointer;
     margin: -32px;
     margin-bottom: 70px;
@@ -51,30 +52,21 @@ export const RemoveItem = styled.button`
 `
 
 export const SidebarContainer = styled.div`
-overflow:hidden;
-background: #0F52BA;
-    box-shadow: -5px 0px 6px rgba(0,0,0,0.13);
-    width: 486px;
+    overflow: hidden;
     margin: 0;
     padding: 0px;
-    position: fixed;
     height: 100%;
     overflow: auto;
     text-align: left;
-    top: 0;
-    right: 0;
-    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-@media screen and (max-width: 700px) {
-   
-width: 100%;
-height: auto;
-position: relative;
-    
+    @media screen and (max-width: 700px) {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 `
 
 export const ProductPhoto = styled.img`
@@ -84,7 +76,7 @@ export const ProductPhoto = styled.img`
     margin-left: -10px;
 `
 
-export const ProductContainer = styled.div`
+export const ProductContainer = styled(motion.li)`
     background: #ffffff;
     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
@@ -92,7 +84,6 @@ export const ProductContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     height: 57px;
-    width: 360px;
     padding: 23px;
     align-items: center;
     margin: 22px;
@@ -154,30 +145,36 @@ export const ProductTotal = styled.div`
 `
 
 export const ProductTotalContainer = styled.div`
-display: flex;
-padding: 34px;
-width: 100%;
-justify-content: space-around;
-margin-top: auto;
-}`
+    display: flex;
+    padding: 34px;
+    width: 100%;
+    background-color: #0d52b9;
+    justify-content: space-around;
+    margin-top: auto;
+    z-index: 2;
+`
 
 export const ProductListContainer = styled.div`
     overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    z-index: 2;
+    width: 100%;
     &::-webkit-scrollbar {
         display: none;
     }
 `
 
-export const FinishBuyButton = styled.button`
+export const FinishBuyButton = styled.a`
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
+    z-index: 2;
+    text-decoration: none;
     line-height: 15px;
-    height: 80px;
-    width: 100%;
+    display: flex;
+    justify-content: center;
     color: #ffffff;
     background: #000000;
     border: none;

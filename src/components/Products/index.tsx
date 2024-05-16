@@ -9,32 +9,35 @@ import {
     ProductsContainer,
 } from './styles'
 import { BsFillBagFill } from 'react-icons/bs'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchProductDataRequest } from '../../store/productData/actions'
-import {
-    getPendingSelector,
-    getProductDataSelector,
-    getErrorSelector,
-} from '../../store/productData/selectors'
-import { Product, Products } from '../../store/productData/types'
+
+import { Product } from '../../hooks/types'
 import Skeleton from '../Skeleton'
-import {
-    fetchAdd,
-    fetchQuantityIncrease,
-} from '../../store/shoppingCart/actions'
-import { getShoppingCartSelector } from '../../store/shoppingCart/selectors'
+import { useProducts } from '../../hooks/useProducts'
+import usePaginationStore from '../../store/pagination/usePagination'
+import useShoppingCartStore from '../../store/shoppingCart/useShoppingCart'
 
-function Header() {
-    const dispatch = useDispatch()
-    const pending = useSelector(getPendingSelector)
-    const productData: Products = useSelector(getProductDataSelector)
-    const error = useSelector(getErrorSelector)
-    const shoppingCart = useSelector(getShoppingCartSelector)
+function Products() {
+    const { orderBy, page, rows, sortBy } = usePaginationStore()
+    const {
+        items: shoppingCart,
+        addItem,
+        increaseQuantity,
+    } = useShoppingCartStore()
 
-    useEffect(() => {
-        dispatch(fetchProductDataRequest())
-    }, [])
+    const {
+        data: productsData,
+        isLoading,
+        error,
+    } = useProducts({
+        page,
+        rows,
+        sortBy,
+        orderBy,
+    })
+
+    // useEffect(() => {
+    //     prefetchProducts()
+    // }, [page])
 
     const skeletons = Array(8).fill(
         <Container>
@@ -47,28 +50,26 @@ function Header() {
             shoppingCart &&
             shoppingCart.some((prod) => prod.id === product.id)
         ) {
-            dispatch(fetchQuantityIncrease(product.id))
+            increaseQuantity(product.id)
         } else {
-            dispatch(
-                fetchAdd({
-                    id: product.id,
-                    name: product.name,
-                    quantity: 1,
-                    photo: product.photo,
-                    price: product.price,
-                })
-            )
+            addItem({
+                id: product.id,
+                name: product.name,
+                quantity: 1,
+                photo: product.photo,
+                price: product.price,
+            })
         }
     }
 
     return (
         <ProductsContainer>
-            {pending ? (
+            {isLoading ? (
                 <>{skeletons}</>
             ) : error ? (
-                <div>Erro!</div>
+                <div>Erro! </div>
             ) : (
-                productData?.products?.map(
+                productsData?.products?.map(
                     (product: Product, index: number) => (
                         <Container key={index}>
                             <ProductPhoto
@@ -100,4 +101,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Products

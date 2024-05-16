@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const ProductsContainer = styled.div`
     display: flex;
-    padding: 5em 8em;
+    padding: 1em;
     margin-top: 10vh;
     gap: 40px;
-    max-width: 1000px;
+    max-width: 900px; /* Ajuste o valor de acordo com a sua necessidade */
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -25,6 +25,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-content: stretch;
     justify-content: flex-end;
+    z-index: 1;
 `
 
 export const Name = styled.p`
